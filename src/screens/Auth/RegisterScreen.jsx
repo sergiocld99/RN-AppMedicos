@@ -8,6 +8,7 @@ import { registerSchema } from "../../validations/credentialsSchema";
 import { useRegisterMutation } from "../../services/authService";
 import { useDispatch } from "react-redux";
 import { login } from "../../features/User/UserSlice";
+import { insertSession } from "../../databases/Local";
 
 const RegisterScreen = ({ navigation }) => {
   // Valores de los campos de registro
@@ -28,7 +29,18 @@ const RegisterScreen = ({ navigation }) => {
 
   useEffect(() => {
     if (mutationResult.isSuccess) {
-      dispatch(login({ data: mutationResult.data }));
+      let { email, localId, idToken } = mutationResult.data;
+
+      // Despachar la acción de login con los datos del usuario registrado
+      dispatch(login({ email, localId, idToken }));
+
+      // Guardar sesión en la base de datos local
+      insertSession({localId, email, token: idToken})
+        .then(() => console.log("Sesión guardada en la base de datos local"))
+        .catch((error) =>
+          console.log("Error al guardar la sesión en la base de datos local:", error)
+        );
+
     } else if (mutationResult.isError) {
       console.log("Error al registrar el usuario:", mutationResult.error);
     }
@@ -51,7 +63,9 @@ const RegisterScreen = ({ navigation }) => {
         { abortEarly: false }
       );
 
+      // Registrar el usuario en Firebase
       triggerRegister({ email, password, returnSecureToken: true });
+
     } catch (error) {
       // Mostrar cada mensaje de error en el campo correspondiente
       if (error.inner) for (let i = 0; i < error.inner.length; i++) {
