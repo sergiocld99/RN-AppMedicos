@@ -1,11 +1,10 @@
-import { StatusBar } from 'expo-status-bar';
-import { SafeAreaView, StyleSheet, Text, View } from 'react-native';
+import { SafeAreaView, StyleSheet } from 'react-native';
 import { getPlatformMarginTop } from './src/utils';
 import Navigator from './src/navigation/Navigator';
 import { Provider } from 'react-redux';
 import { colors } from './src/global/colors';
-import store from './src/store';
-import { init } from './src/databases/local';
+import Store from './src/store';
+import { init } from './src/databases/Local';
 
 // Inicialización de la base de datos local
 init()
@@ -18,7 +17,7 @@ init()
 export default function App() {
   return (
     <SafeAreaView style={styles.container}>
-      <Provider store={store}>
+      <Provider store={Store}>
         <Navigator />
       </Provider>
     </SafeAreaView>
