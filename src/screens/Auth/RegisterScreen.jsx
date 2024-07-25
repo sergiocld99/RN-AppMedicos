@@ -33,9 +33,11 @@ const RegisterScreen = ({ navigation }) => {
         { email, password, confirmPassword },
         { abortEarly: false }
       );
+
+      console.log("Registro exitoso");
     } catch (error) {
       // Mostrar cada mensaje de error en el campo correspondiente
-      for (let i = 0; i < error.inner.length; i++) {
+      if (error.inner) for (let i = 0; i < error.inner.length; i++) {
         let path = error.inner[i].path;
         let msg = error.inner[i].message;
 

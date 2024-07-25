@@ -4,6 +4,7 @@ import InputForm from '../../components/InputForm';
 import i18n from '../../translations/i18n';
 import SubmitBtn from '../../components/SubmitBtn';
 import { styles } from './common';
+import { loginSchema } from '../../validations/credentialsSchema';
 
 const LoginScreen = ({navigation}) => {
   // Valores de los campos de login
@@ -13,9 +14,40 @@ const LoginScreen = ({navigation}) => {
   // Mensajes de error
   const [errorEmail, setErrorEmail] = useState('')
   const [errorPassword, setErrorPassword] = useState('')
+
+  // Limpieza de mensajes de error
+  const clearErrors = () => {
+    setErrorEmail('')
+    setErrorPassword('')
+  }
   
   const handleLogin = () => {
-    console.log('Login')
+    clearErrors()
+
+    try {
+      // Validar todos los datos del formulario
+      loginSchema.validateSync(
+        { email, password },
+        { abortEarly: false }
+      );
+
+      console.log('Login exitoso')
+    } catch (error) {
+      // Mostrar cada mensaje de error en el campo correspondiente
+      if (error.inner) for (let i = 0; i < error.inner.length; i++) {
+        let path = error.inner[i].path;
+        let msg = error.inner[i].message;
+
+        switch (path) {
+          case "email":
+            setErrorEmail(msg);
+            break;
+          case "password":
+            setErrorPassword(msg);
+            break;
+        }
+      } 
+    }
   }
 
   return (
