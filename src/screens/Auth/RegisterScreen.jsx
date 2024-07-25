@@ -1,10 +1,13 @@
 import { View, Text, Pressable } from "react-native";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import InputForm from "../../components/InputForm";
 import SubmitBtn from "../../components/SubmitBtn";
 import i18n from "../../translations/i18n";
 import { styles } from "./common";
 import { registerSchema } from "../../validations/credentialsSchema";
+import { useRegisterMutation } from "../../services/authService";
+import { useDispatch } from "react-redux";
+import { login } from "../../features/User/UserSlice";
 
 const RegisterScreen = ({ navigation }) => {
   // Valores de los campos de registro
@@ -16,6 +19,20 @@ const RegisterScreen = ({ navigation }) => {
   const [errorEmail, setErrorEmail] = useState("");
   const [errorPassword, setErrorPassword] = useState("");
   const [errorConfirmPassword, setErrorConfirmPassword] = useState("");
+
+  // Hook de registro en Firebase
+  const [triggerRegister, mutationResult] = useRegisterMutation();
+
+  // Hook de despacho de acciones
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (mutationResult.isSuccess) {
+      dispatch(login({ data: mutationResult.data }));
+    } else if (mutationResult.isError) {
+      console.log("Error al registrar el usuario:", mutationResult.error);
+    }
+  }, [mutationResult]);
 
   // Limpieza de mensajes de error
   const clearErrors = () => {
@@ -34,7 +51,7 @@ const RegisterScreen = ({ navigation }) => {
         { abortEarly: false }
       );
 
-      console.log("Registro exitoso");
+      triggerRegister({ email, password, returnSecureToken: true });
     } catch (error) {
       // Mostrar cada mensaje de error en el campo correspondiente
       if (error.inner) for (let i = 0; i < error.inner.length; i++) {

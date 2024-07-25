@@ -5,14 +5,26 @@ export const authSlice = createSlice({
   initialState: {
     value: {
       user: null,
+      token: null,
+      localId: null,
     }
   },
   reducers: {
     login: (state, action) => {
-      state.user = action.payload;
+      state.value = {
+        ...state.value,
+        user: action.payload.data.email,
+        token: action.payload.data.idToken,
+        localId: action.payload.data.localId,
+      }
     },
     logout: (state) => {
-      state.user = null;
+      state.value = {
+        ...state.value,
+        user: null,
+        token: null,
+        localId: null,
+      }
     },
   },
 });

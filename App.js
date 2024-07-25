@@ -3,7 +3,7 @@ import { getPlatformMarginTop } from './src/utils';
 import Navigator from './src/navigation/Navigator';
 import { Provider } from 'react-redux';
 import { colors } from './src/global/colors';
-import Store from './src/store';
+import store from './src/store';
 import { init } from './src/databases/Local';
 
 // Inicialización de la base de datos local
@@ -17,7 +17,7 @@ init()
 export default function App() {
   return (
     <SafeAreaView style={styles.container}>
-      <Provider store={Store}>
+      <Provider store={store}>
         <Navigator />
       </Provider>
     </SafeAreaView>
