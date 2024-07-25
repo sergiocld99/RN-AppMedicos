@@ -1,20 +1,34 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { SafeAreaView, StyleSheet, Text, View } from 'react-native';
+import { getPlatformMarginTop } from './src/utils';
+import Navigator from './src/navigation/Navigator';
+import { Provider } from 'react-redux';
+import { colors } from './src/global/colors';
+import store from './src/store';
+import { init } from './src/databases/local';
 
+// Inicialización de la base de datos local
+init()
+  .then(() => console.log('Base de datos local inicializada correctamente'))
+  .catch((error) => console.log('Error al inicializar la base de datos local:', error))
+
+/**
+ * Componente principal de la aplicación.
+ */
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <SafeAreaView style={styles.container}>
+      <Provider store={store}>
+        <Navigator />
+      </Provider>
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: colors.background,
+    marginTop: getPlatformMarginTop()
   },
 });
