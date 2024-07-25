@@ -5,6 +5,7 @@ import { NavigationContainer } from '@react-navigation/native'
 import AuthStackNavigator from './AuthStackNavigator'
 import { getSessions } from '../databases/Local'
 import { login } from '../features/User/UserSlice'
+import MainTabsNavigator from './MainTabsNavigator'
 
 const Navigator = () => {
   const { user } = useSelector((state) => state.auth.value)
@@ -30,9 +31,7 @@ const Navigator = () => {
   return (
     <NavigationContainer>
       {user ? (
-        <View>
-          <Text>Logged In</Text>
-        </View>
+        <MainTabsNavigator />
       ) : (
         <AuthStackNavigator />
       )}
