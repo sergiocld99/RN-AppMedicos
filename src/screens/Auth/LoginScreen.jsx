@@ -1,10 +1,12 @@
 import { View, Text, StyleSheet, Button, Pressable } from 'react-native'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import InputForm from '../../components/InputForm';
 import i18n from '../../translations/i18n';
 import SubmitBtn from '../../components/SubmitBtn';
-import { styles } from './common';
+import { localLogin, styles } from './common';
 import { loginSchema } from '../../validations/credentialsSchema';
+import { useLoginMutation } from '../../services/authService';
+import { useDispatch } from 'react-redux';
 
 const LoginScreen = ({navigation}) => {
   // Valores de los campos de login
@@ -14,6 +16,20 @@ const LoginScreen = ({navigation}) => {
   // Mensajes de error
   const [errorEmail, setErrorEmail] = useState('')
   const [errorPassword, setErrorPassword] = useState('')
+
+  // Hook de login en Firebase
+  const [triggerLogin, mutationResult] = useLoginMutation()
+
+  // Hook de despacho de acciones
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    if (mutationResult.isSuccess) {
+      localLogin({ mutationResult, dispatch });
+    } else if (mutationResult.isError) {
+      console.log("Error al autenticar:", mutationResult.error);
+    }
+  }, [mutationResult]);
 
   // Limpieza de mensajes de error
   const clearErrors = () => {
@@ -31,7 +47,9 @@ const LoginScreen = ({navigation}) => {
         { abortEarly: false }
       );
 
-      console.log('Login exitoso')
+      // Autenticar en Firebase
+      triggerLogin({ email, password, returnSecureToken: true })
+
     } catch (error) {
       // Mostrar cada mensaje de error en el campo correspondiente
       if (error.inner) for (let i = 0; i < error.inner.length; i++) {

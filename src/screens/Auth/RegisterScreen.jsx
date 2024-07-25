@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import InputForm from "../../components/InputForm";
 import SubmitBtn from "../../components/SubmitBtn";
 import i18n from "../../translations/i18n";
-import { styles } from "./common";
+import { localLogin, styles } from "./common";
 import { registerSchema } from "../../validations/credentialsSchema";
 import { useRegisterMutation } from "../../services/authService";
 import { useDispatch } from "react-redux";
@@ -29,18 +29,7 @@ const RegisterScreen = ({ navigation }) => {
 
   useEffect(() => {
     if (mutationResult.isSuccess) {
-      let { email, localId, idToken } = mutationResult.data;
-
-      // Despachar la acción de login con los datos del usuario registrado
-      dispatch(login({ email, localId, idToken }));
-
-      // Guardar sesión en la base de datos local
-      insertSession({localId, email, token: idToken})
-        .then(() => console.log("Sesión guardada en la base de datos local"))
-        .catch((error) =>
-          console.log("Error al guardar la sesión en la base de datos local:", error)
-        );
-
+      localLogin({ mutationResult, dispatch });
     } else if (mutationResult.isError) {
       console.log("Error al registrar el usuario:", mutationResult.error);
     }
