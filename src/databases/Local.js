@@ -16,6 +16,9 @@ const CREATE_TABLE = `CREATE TABLE IF NOT EXISTS ${TABLE_NAME} (
 // Sentencia para insertar la sesión en la tabla
 const INSERT_SESSION = `INSERT INTO ${TABLE_NAME} (local_id, email, token) VALUES (?, ?, ?)`
 
+// Sentencia para recuperar la sesión guardada
+const SELECT_SESSION = `SELECT * FROM ${TABLE_NAME}`
+
 // Inicialización de la base de datos local, creando la tabla si no existe
 export const init = () => (
   new Promise((resolve, reject) => {
@@ -30,6 +33,17 @@ export const insertSession = ({localId, email, token}) => (
   new Promise((resolve, reject) => {
     db.transaction((tx) => {
       tx.executeSql(INSERT_SESSION, [localId, email, token], resolve, reject)
+    })
+  })
+)
+
+// Recuperar todas las sesiones guardadas en la tabla
+export const getSessions = () => (
+  new Promise((resolve, reject) => {
+    db.transaction((tx) => {
+      tx.executeSql(SELECT_SESSION, [], (_, { rows }) => {
+        resolve(rows._array)
+      }, reject)
     })
   })
 )
