@@ -26,7 +26,12 @@ const getIconColor = (focused) => {
  */
 const MainTabsNavigator = () => {
   return (
-    <Tab.Navigator>
+    <Tab.Navigator screenOptions={
+      {
+        tabBarActiveTintColor: colors.focusedIcon,
+        tabBarInactiveTintColor: colors.unfocusedIcon,
+      }
+    }>
       <Tab.Screen name="Home" component={HomeScreen} options={
         {
           tabBarIcon: ({ focused }) => <MaterialCommunityIcons name="doctor" size={24} color={getIconColor(focused)} />
