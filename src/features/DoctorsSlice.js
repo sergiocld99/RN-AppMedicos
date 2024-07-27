@@ -13,3 +13,6 @@ export const doctorsSlice = createSlice({
     },
   },
 });
+
+// Exportar las acciones
+export const { setSpecialtySelected } = doctorsSlice.actions;

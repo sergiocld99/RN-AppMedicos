@@ -3,6 +3,8 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { useGetSpecialtiesQuery } from "../../services/doctorListService";
 import { colors } from "../../global/colors";
+import SingleTextCard from "../../components/SingleTextCard";
+import { setSpecialtySelected } from "../../features/DoctorsSlice";
 
 const Specialties = ({ navigation }) => {
   const dispatch = useDispatch();
@@ -12,7 +14,10 @@ const Specialties = ({ navigation }) => {
     <View style={styles.container}>
       <FlatList data={data} keyExtractor={item => item} renderItem={
         ({ item }) => (
-          <Text>{item}</Text>
+          <SingleTextCard text={item} onPress={() => {
+            dispatch(setSpecialtySelected(item));
+            navigation.navigate("DoctorsOfSpecialty", { specialty: item }); 
+          }} />
         )
       } />
     </View>
