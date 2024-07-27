@@ -4,19 +4,24 @@ import { colors } from '../../global/colors';
 import { useGetDoctorsBySpecialtyQuery } from '../../services/doctorListService';
 import SingleTextCard from '../../components/SingleTextCard';
 import DoctorCard from '../../components/DoctorCard';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { setDoctorIdSelected } from '../../features/DoctorsSlice';
 
 const DoctorsOfSpeciality = ({navigation}) => {
   const specialty = useSelector(state => state.doctors.value.specialtySelected);
+
+  // Estado para almacenar los doctores
   const [doctors, setDoctors] = useState([]);
   
+  const dispatch = useDispatch();
+
   // Obtención de doctores de la especialidad seleccionada
   const {data, isLoading, isError} = useGetDoctorsBySpecialtyQuery(specialty);
 
   // Ordenar doctores por apellido al cargar los datos
   useEffect(() => {
     if (data) {
-      const sortedBySurname = [...data].sort((a, b) => a.apellido.localeCompare(b.apellido));
+      const sortedBySurname = [...data].sort((a, b) => (a.apellido + a.nombre).localeCompare(b.apellido + b.nombre));
       setDoctors(sortedBySurname);
     }
   }, [data])
@@ -27,7 +32,8 @@ const DoctorsOfSpeciality = ({navigation}) => {
       <FlatList data={doctors} keyExtractor={item => item.id} renderItem={
         ({ item }) => (
           <DoctorCard doctor={item} onPress={() => {
-            navigation.navigate("DoctorDetail", { doctor: item.id }); 
+            dispatch(setDoctorIdSelected(item.id));
+            navigation.navigate("DoctorDetail"); 
           }} />
         )
       } />

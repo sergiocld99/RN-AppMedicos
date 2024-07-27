@@ -1,33 +1,18 @@
 import { Pressable, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
+import RoundedCard from './RoundedCard'
 
 const SingleTextCard = ({text, onPress}) => {
   return (
-    <Pressable onPress={onPress} style={styles.roundedCard}>
+    <RoundedCard onPress={onPress}>
       <Text style={styles.internalText}>{text}</Text>
-    </Pressable>
+    </RoundedCard>
   )
 }
 
 export default SingleTextCard
 
 const styles = StyleSheet.create({
-  roundedCard: {
-    backgroundColor: "white",
-    borderRadius: 10,
-    padding: 10,
-    shadowColor: "#000",
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
-
-    elevation: 5,
-    marginVertical: 8,
-    marginHorizontal: 16
-  },
   internalText: {
     fontSize: 16
   }

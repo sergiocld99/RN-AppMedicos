@@ -5,14 +5,18 @@ export const doctorsSlice = createSlice({
   initialState: {
     value: {
       specialtySelected: null,
+      doctorIdSelected: null,
     },
   },
   reducers: {
     setSpecialtySelected: (state, action) => {
       state.value.specialtySelected = action.payload;
     },
+    setDoctorIdSelected: (state, action) => {
+      state.value.doctorIdSelected = action.payload;
+    },
   },
 });
 
 // Exportar las acciones
-export const { setSpecialtySelected } = doctorsSlice.actions;
+export const { setSpecialtySelected, setDoctorIdSelected } = doctorsSlice.actions;

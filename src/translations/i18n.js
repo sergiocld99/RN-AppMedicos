@@ -18,6 +18,8 @@ const translations = {
     emailInvalid: 'Invalid email',
     passwordMinRequired: `Password must be at least ${PASSWORD_MIN_LENGTH} characters long`,
     specialties: 'Specialties',
+    reviews: 'Reviews',
+    loading: 'Loading...',
   },
   es: {
     login: 'Ingresar',
@@ -34,6 +36,8 @@ const translations = {
     emailInvalid: 'Correo electrónico inválido',
     passwordMinRequired: `La contraseña debe tener al menos ${PASSWORD_MIN_LENGTH} caracteres`,
     specialties: 'Especialidades',
+    reviews: 'Opiniones',
+    loading: 'Cargando...',
   },
 }
 

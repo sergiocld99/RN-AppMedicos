@@ -1,13 +1,14 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { Pressable, StyleSheet, Text, View } from 'react-native'
 import { Fontisto } from '@expo/vector-icons';
 import { Feather } from '@expo/vector-icons';
 import React from 'react'
+import RoundedCard from './RoundedCard';
 
 const DoctorCard = ({doctor, onPress}) => {
   const rating = doctor.reviews.reduce((acc, review) => acc + review.calificación, 0) / doctor.reviews.length;
   
   return (
-    <View style={styles.roundedCard}>
+    <RoundedCard onPress={onPress}>
       <Fontisto name={doctor.sexo === 'M' ? "male" : "female"} size={48} color="black" />
       <View style={styles.summary}>
         <View style={styles.row}>
@@ -16,34 +17,16 @@ const DoctorCard = ({doctor, onPress}) => {
         </View>
         <View style={styles.row}>
           <Feather name="star" size={20} color="black" />
-          <Text>{rating}</Text>
+          <Text>{rating.toFixed(1)}</Text>
         </View>
       </View>
-    </View>
+    </RoundedCard>
   )
 }
 
 export default DoctorCard
 
 const styles = StyleSheet.create({
-  roundedCard: {
-    backgroundColor: "white",
-    borderRadius: 10,
-    padding: 10,
-    shadowColor: "#000",
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
-
-    elevation: 5,
-    marginVertical: 8,
-    marginHorizontal: 16,
-    flexDirection: "row",
-    gap: 16
-  },
   summary: {
     gap: 4
   },

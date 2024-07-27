@@ -901,6 +901,709 @@
         "calificación": 4
       }
     ]
+  },
+  {
+    "id": 44,
+    "nombre": "Carolina",
+    "apellido": "López",
+    "especialidad": "Cardiología",
+    "sexo": "F",
+    "ubicación": {
+      "latitud": -34.6095,
+      "longitud": -58.3713
+    },
+    "reviews": [
+      {
+        "calificación": 4
+      },
+      {
+        "calificación": 5
+      }
+    ]
+  },
+  {
+    "id": 45,
+    "nombre": "Federico",
+    "apellido": "González",
+    "especialidad": "Dermatología",
+    "sexo": "M",
+    "ubicación": {
+      "latitud": -34.6083,
+      "longitud": -58.3815
+    },
+    "reviews": [
+      {
+        "calificación": 4
+      },
+      {
+        "calificación": 3
+      }
+    ]
+  },
+  {
+    "id": 46,
+    "nombre": "Valentina",
+    "apellido": "Martínez",
+    "especialidad": "Pediatría",
+    "sexo": "F",
+    "ubicación": {
+      "latitud": -34.6078,
+      "longitud": -58.3801
+    },
+    "reviews": [
+      {
+        "calificación": 5
+      },
+      {
+        "calificación": 4
+      }
+    ]
+  },
+  {
+    "id": 47,
+    "nombre": "Gustavo",
+    "apellido": "Fernández",
+    "especialidad": "Neurología",
+    "sexo": "M",
+    "ubicación": {
+      "latitud": -34.6098,
+      "longitud": -58.3821
+    },
+    "reviews": [
+      {
+        "calificación": 3
+      },
+      {
+        "calificación": 4
+      }
+    ]
+  },
+  {
+    "id": 48,
+    "nombre": "Luciana",
+    "apellido": "Mendoza",
+    "especialidad": "Gastroenterología",
+    "sexo": "F",
+    "ubicación": {
+      "latitud": -34.6082,
+      "longitud": -58.3735
+    },
+    "reviews": [
+      {
+        "calificación": 5
+      },
+      {
+        "calificación": 5
+      }
+    ]
+  },
+  {
+    "id": 49,
+    "nombre": "Sebastián",
+    "apellido": "Ramírez",
+    "especialidad": "Oftalmología",
+    "sexo": "M",
+    "ubicación": {
+      "latitud": -34.6074,
+      "longitud": -58.3727
+    },
+    "reviews": [
+      {
+        "calificación": 4
+      },
+      {
+        "calificación": 3
+      }
+    ]
+  },
+  {
+    "id": 50,
+    "nombre": "Carla",
+    "apellido": "Pérez",
+    "especialidad": "Endocrinología",
+    "sexo": "F",
+    "ubicación": {
+      "latitud": -34.6077,
+      "longitud": -58.3730
+    },
+    "reviews": [
+      {
+        "calificación": 5
+      },
+      {
+        "calificación": 5
+      }
+    ]
+  },
+  {
+    "id": 51,
+    "nombre": "Andrés",
+    "apellido": "Sánchez",
+    "especialidad": "Traumatología",
+    "sexo": "M",
+    "ubicación": {
+      "latitud": -34.6091,
+      "longitud": -58.3704
+    },
+    "reviews": [
+      {
+        "calificación": 4
+      },
+      {
+        "calificación": 4
+      }
+    ]
+  },
+  {
+    "id": 52,
+    "nombre": "Valeria",
+    "apellido": "Vásquez",
+    "especialidad": "Geriatría",
+    "sexo": "F",
+    "ubicación": {
+      "latitud": -34.6085,
+      "longitud": -58.3748
+    },
+    "reviews": [
+      {
+        "calificación": 5
+      },
+      {
+        "calificación": 5
+      }
+    ]
+  },
+  {
+    "id": 53,
+    "nombre": "Mariano",
+    "apellido": "González",
+    "especialidad": "Radiología",
+    "sexo": "M",
+    "ubicación": {
+      "latitud": -34.6070,
+      "longitud": -58.3773
+    },
+    "reviews": [
+      {
+        "calificación": 4
+      },
+      {
+        "calificación": 3
+      }
+    ]
+  },
+  {
+    "id": 54,
+    "nombre": "Carolina",
+    "apellido": "Rodríguez",
+    "especialidad": "Medicina Interna",
+    "sexo": "F",
+    "ubicación": {
+      "latitud": -34.6094,
+      "longitud": -58.3714
+    },
+    "reviews": [
+      {
+        "calificación": 5
+      },
+      {
+        "calificación": 5
+      }
+    ]
+  },
+  {
+    "id": 55,
+    "nombre": "Federico",
+    "apellido": "Jiménez",
+    "especialidad": "Inmunología",
+    "sexo": "M",
+    "ubicación": {
+      "latitud": -34.6088,
+      "longitud": -58.3751
+    },
+    "reviews": [
+      {
+        "calificación": 4
+      },
+      {
+        "calificación": 4
+      }
+    ]
+  },
+  {
+    "id": 56,
+    "nombre": "Valentina",
+    "apellido": "Cruz",
+    "especialidad": "Oncología",
+    "sexo": "F",
+    "ubicación": {
+      "latitud": -34.6071,
+      "longitud": -58.3789
+    },
+    "reviews": [
+      {
+        "calificación": 5
+      },
+      {
+        "calificación": 5
+      }
+    ]
+  },
+  {
+    "id": 57,
+    "nombre": "Gustavo",
+    "apellido": "Morales",
+    "especialidad": "Cirugía General",
+    "sexo": "M",
+    "ubicación": {
+      "latitud": -34.6099,
+      "longitud": -58.3698
+    },
+    "reviews": [
+      {
+        "calificación": 3
+      },
+      {
+        "calificación": 4
+      }
+    ]
+  },
+  {
+    "id": 58,
+    "nombre": "Luciana",
+    "apellido": "Alvarez",
+    "especialidad": "Hematología",
+    "sexo": "F",
+    "ubicación": {
+      "latitud": -34.6083,
+      "longitud": -58.3741
+    },
+    "reviews": [
+      {
+        "calificación": 5
+      },
+      {
+        "calificación": 5
+      }
+    ]
+  },
+  {
+    "id": 59,
+    "nombre": "Sebastián",
+    "apellido": "Salazar",
+    "especialidad": "Reumatología",
+    "sexo": "M",
+    "ubicación": {
+      "latitud": -34.6077,
+      "longitud": -58.3717
+    },
+    "reviews": [
+      {
+        "calificación": 4
+      },
+      {
+        "calificación": 3
+      }
+    ]
+  },
+  {
+    "id": 60,
+    "nombre": "Carla",
+    "apellido": "Romero",
+    "especialidad": "Pediatría",
+    "sexo": "F",
+    "ubicación": {
+      "latitud": -34.6079,
+      "longitud": -58.3702
+    },
+    "reviews": [
+      {
+        "calificación": 5
+      },
+      {
+        "calificación": 5
+      }
+    ]
+  },
+  {
+    "id": 61,
+    "nombre": "Andrés",
+    "apellido": "Gutiérrez",
+    "especialidad": "Cirugía General",
+    "sexo": "M",
+    "ubicación": {
+      "latitud": -34.6093,
+      "longitud": -58.3723
+    },
+    "reviews": [
+      {
+        "calificación": 4
+      },
+      {
+        "calificación": 4
+      }
+    ]
+  },
+  {
+    "id": 62,
+    "nombre": "Valeria",
+    "apellido": "Ramos",
+    "especialidad": "Cardiología",
+    "sexo": "F",
+    "ubicación": {
+      "latitud": -34.6087,
+      "longitud": -58.3719
+    },
+    "reviews": [
+      {
+        "calificación": 5
+      },
+      {
+        "calificación": 5
+      }
+    ]
+  },
+  {
+    "id": 63,
+    "nombre": "Mariano",
+    "apellido": "Torres",
+    "especialidad": "Dermatología",
+    "sexo": "M",
+    "ubicación": {
+      "latitud": -34.6073,
+      "longitud": -58.3732
+    },
+    "reviews": [
+      {
+        "calificación": 4
+      },
+      {
+        "calificación": 3
+      }
+    ]
+  },
+  {
+    "id": 64,
+    "nombre": "Carolina",
+    "apellido": "Hernández",
+    "especialidad": "Endocrinología",
+    "sexo": "F",
+    "ubicación": {
+      "latitud": -34.6076,
+      "longitud": -58.3743
+    },
+    "reviews": [
+      {
+        "calificación": 5
+      },
+      {
+        "calificación": 5
+      }
+    ]
+  },
+  {
+    "id": 65,
+    "nombre": "Federico",
+    "apellido": "Márquez",
+    "especialidad": "Gastroenterología",
+    "sexo": "M",
+    "ubicación": {
+      "latitud": -34.6090,
+      "longitud": -58.3769
+    },
+    "reviews": [
+      {
+        "calificación": 4
+      },
+      {
+        "calificación": 3
+      }
+    ]
+  },
+  {
+    "id": 66,
+    "nombre": "Valentina",
+    "apellido": "Sosa",
+    "especialidad": "Geriatría",
+    "sexo": "F",
+    "ubicación": {
+      "latitud": -34.6084,
+      "longitud": -58.3738
+    },
+    "reviews": [
+      {
+        "calificación": 5
+      },
+      {
+        "calificación": 4
+      }
+    ]
+  },
+  {
+    "id": 67,
+    "nombre": "Gustavo",
+    "apellido": "Ríos",
+    "especialidad": "Hematología",
+    "sexo": "M",
+    "ubicación": {
+      "latitud": -34.6097,
+      "longitud": -58.3746
+    },
+    "reviews": [
+      {
+        "calificación": 3
+      },
+      {
+        "calificación": 4
+      }
+    ]
+  },
+  {
+    "id": 68,
+    "nombre": "Luciana",
+    "apellido": "Mendoza",
+    "especialidad": "Neurología",
+    "sexo": "F",
+    "ubicación": {
+      "latitud": -34.6081,
+      "longitud": -58.3707
+    },
+    "reviews": [
+      {
+        "calificación": 5
+      },
+      {
+        "calificación": 5
+      }
+    ]
+  },
+  {
+    "id": 69,
+    "nombre": "Sebastián",
+    "apellido": "Jiménez",
+    "especialidad": "Oncología",
+    "sexo": "M",
+    "ubicación": {
+      "latitud": -34.6075,
+      "longitud": -58.3742
+    },
+    "reviews": [
+      {
+        "calificación": 4
+      },
+      {
+        "calificación": 3
+      }
+    ]
+  },
+  {
+    "id": 70,
+    "nombre": "Carla",
+    "apellido": "Gómez",
+    "especialidad": "Oftalmología",
+    "sexo": "F",
+    "ubicación": {
+      "latitud": -34.6078,
+      "longitud": -58.3715
+    },
+    "reviews": [
+      {
+        "calificación": 5
+      },
+      {
+        "calificación": 5
+      }
+    ]
+  },
+  {
+    "id": 71,
+    "nombre": "Andrés",
+    "apellido": "López",
+    "especialidad": "Pediatría",
+    "sexo": "M",
+    "ubicación": {
+      "latitud": -34.6080,
+      "longitud": -58.3722
+    },
+    "reviews": [
+      {
+        "calificación": 4
+      },
+      {
+        "calificación": 4
+      }
+    ]
+  },
+  {
+    "id": 72,
+    "nombre": "Valeria",
+    "apellido": "Núñez",
+    "especialidad": "Reumatología",
+    "sexo": "F",
+    "ubicación": {
+      "latitud": -34.6092,
+      "longitud": -58.3769
+    },
+    "reviews": [
+      {
+        "calificación": 5
+      },
+      {
+        "calificación": 5
+      }
+    ]
+  },
+  {
+    "id": 73,
+    "nombre": "Mariano",
+    "apellido": "Vargas",
+    "especialidad": "Cirugía General",
+    "sexo": "M",
+    "ubicación": {
+      "latitud": -34.6073,
+      "longitud": -58.3708
+    },
+    "reviews": [
+      {
+        "calificación": 4
+      },
+      {
+        "calificación": 3
+      }
+    ]
+  },
+  {
+    "id": 74,
+    "nombre": "Carolina",
+    "apellido": "Arias",
+    "especialidad": "Anestesiología",
+    "sexo": "F",
+    "ubicación": {
+      "latitud": -34.6089,
+      "longitud": -58.3750
+    },
+    "reviews": [
+      {
+        "calificación": 5
+      },
+      {
+        "calificación": 5
+      }
+    ]
+  },
+  {
+    "id": 75,
+    "nombre": "Federico",
+    "apellido": "Benítez",
+    "especialidad": "Gastroenterología",
+    "sexo": "M",
+    "ubicación": {
+      "latitud": -34.6079,
+      "longitud": -58.3713
+    },
+    "reviews": [
+      {
+        "calificación": 4
+      },
+      {
+        "calificación": 4
+      }
+    ]
+  },
+  {
+    "id": 76,
+    "nombre": "Valentina",
+    "apellido": "Cano",
+    "especialidad": "Inmunología",
+    "sexo": "F",
+    "ubicación": {
+      "latitud": -34.6077,
+      "longitud": -58.3725
+    },
+    "reviews": [
+      {
+        "calificación": 5
+      },
+      {
+        "calificación": 5
+      }
+    ]
+  },
+  {
+    "id": 77,
+    "nombre": "Gustavo",
+    "apellido": "Castro",
+    "especialidad": "Dermatología",
+    "sexo": "M",
+    "ubicación": {
+      "latitud": -34.6099,
+      "longitud": -58.3719
+    },
+    "reviews": [
+      {
+        "calificación": 3
+      },
+      {
+        "calificación": 4
+      }
+    ]
+  },
+  {
+    "id": 78,
+    "nombre": "Luciana",
+    "apellido": "Núñez",
+    "especialidad": "Traumatología",
+    "sexo": "F",
+    "ubicación": {
+      "latitud": -34.6082,
+      "longitud": -58.3721
+    },
+    "reviews": [
+      {
+        "calificación": 5
+      },
+      {
+        "calificación": 5
+      }
+    ]
+  },
+  {
+    "id": 79,
+    "nombre": "Sebastián",
+    "apellido": "Morales",
+    "especialidad": "Medicina Interna",
+    "sexo": "M",
+    "ubicación": {
+      "latitud": -34.6076,
+      "longitud": -58.3734
+    },
+    "reviews": [
+      {
+        "calificación": 4
+      },
+      {
+        "calificación": 3
+      }
+    ]
+  },
+  {
+    "id": 80,
+    "nombre": "Carla",
+    "apellido": "Hernández",
+    "especialidad": "Hematología",
+    "sexo": "F",
+    "ubicación": {
+      "latitud": -34.6080,
+      "longitud": -58.3746
+    },
+    "reviews": [
+      {
+        "calificación": 5
+      },
+      {
+        "calificación": 5
+      }
+    ]
   }
 ]
 
