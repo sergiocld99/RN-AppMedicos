@@ -4,7 +4,7 @@ import React from 'react'
 /**
  * Pantalla de cartilla médica
  */
-const HomeScreen = ({navigation}) => {
+const DoctorListScreen = ({navigation}) => {
   return (
     <View>
       <Text>HomeScreen</Text>
@@ -12,4 +12,4 @@ const HomeScreen = ({navigation}) => {
   )
 }
 
-export default HomeScreen
+export default DoctorListScreen

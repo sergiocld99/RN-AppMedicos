@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { NavigationContainer } from '@react-navigation/native'
 import AuthStackNavigator from './AuthStackNavigator'
 import { getSessions } from '../databases/Local'
-import { login } from '../features/User/UserSlice'
+import { login } from '../features/UserSlice'
 import MainTabsNavigator from './MainTabsNavigator'
 
 const Navigator = () => {

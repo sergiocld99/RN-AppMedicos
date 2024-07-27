@@ -7,8 +7,6 @@ import { localLogin, styles } from "./common";
 import { registerSchema } from "../../validations/credentialsSchema";
 import { useRegisterMutation } from "../../services/authService";
 import { useDispatch } from "react-redux";
-import { login } from "../../features/User/UserSlice";
-import { insertSession } from "../../databases/Local";
 
 const RegisterScreen = ({ navigation }) => {
   // Valores de los campos de registro

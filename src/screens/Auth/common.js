@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native";
-import { login } from "../../features/User/UserSlice";
+import { login } from "../../features/UserSlice";
 import { insertSession } from "../../databases/Local";
 
 export const styles = StyleSheet.create({
