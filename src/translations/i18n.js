@@ -17,6 +17,7 @@ const translations = {
     confirmPasswordRequired: 'Confirm password is required',
     emailInvalid: 'Invalid email',
     passwordMinRequired: `Password must be at least ${PASSWORD_MIN_LENGTH} characters long`,
+    specialties: 'Specialties',
   },
   es: {
     login: 'Ingresar',
@@ -32,6 +33,7 @@ const translations = {
     confirmPasswordRequired: 'La confirmación de la contraseña es obligatoria',
     emailInvalid: 'Correo electrónico inválido',
     passwordMinRequired: `La contraseña debe tener al menos ${PASSWORD_MIN_LENGTH} caracteres`,
+    specialties: 'Especialidades',
   },
 }
 

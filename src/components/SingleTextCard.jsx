@@ -4,7 +4,7 @@ import React from 'react'
 const SingleTextCard = ({text, onPress}) => {
   return (
     <Pressable onPress={onPress} style={styles.roundedCard}>
-      <Text>{text}</Text>
+      <Text style={styles.internalText}>{text}</Text>
     </Pressable>
   )
 }
@@ -28,4 +28,7 @@ const styles = StyleSheet.create({
     marginVertical: 8,
     marginHorizontal: 16
   },
+  internalText: {
+    fontSize: 16
+  }
 })

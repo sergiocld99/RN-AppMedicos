@@ -5,6 +5,7 @@ import { useGetSpecialtiesQuery } from "../../services/doctorListService";
 import { colors } from "../../global/colors";
 import SingleTextCard from "../../components/SingleTextCard";
 import { setSpecialtySelected } from "../../features/DoctorsSlice";
+import i18n from "../../translations/i18n";
 
 const Specialties = ({ navigation }) => {
   const dispatch = useDispatch();
@@ -12,11 +13,12 @@ const Specialties = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
+      <Text style={styles.title}>{i18n.t('specialties')}</Text>
       <FlatList data={data} keyExtractor={item => item} renderItem={
         ({ item }) => (
           <SingleTextCard text={item} onPress={() => {
             dispatch(setSpecialtySelected(item));
-            navigation.navigate("DoctorsOfSpecialty", { specialty: item }); 
+            navigation.navigate("DoctorsOfSpecialty"); 
           }} />
         )
       } />
@@ -32,4 +34,10 @@ const styles = StyleSheet.create({
     width: "100%",
     backgroundColor: colors.background
   },
+  title: {
+    fontSize: 24,
+    fontWeight: "bold",
+    margin: 16,
+    textAlign: "center"
+  }
 });

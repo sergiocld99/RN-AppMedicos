@@ -12,9 +12,11 @@ export const doctorListApi = createApi({
     getDoctorsBySpecialty: builder.query({
       query: (specialty) =>
         `medicos.json?orderBy="especialidad"&equalTo="${specialty}"`,
+      transformResponse: (response) => Object.values(response),
     }),
     getDoctorById: builder.query({
       query: (id) => `medicos.json?orderBy="id"&equalTo=${id}`,
+      transformResponse: (response) => Object.values(response)[0],
     }),
   }),
 });
