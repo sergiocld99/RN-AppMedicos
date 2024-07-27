@@ -2,7 +2,7 @@ import { View, Text } from 'react-native'
 import React from 'react'
 
 /**
- * Pantalla principal de Turnos 
+ * Pantalla de cartilla médica
  */
 const HomeScreen = ({navigation}) => {
   return (

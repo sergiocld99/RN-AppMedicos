@@ -3,6 +3,11 @@ import LoginScreen from "../screens/Auth/LoginScreen";
 import RegisterScreen from "../screens/Auth/RegisterScreen";
 
 const Stack = createNativeStackNavigator()
+
+/**
+ * 
+ * @returns Navegador para las pantallas de autenticación
+ */
 const AuthStackNavigator = () => {
   return (
     <Stack.Navigator>
