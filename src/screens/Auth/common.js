@@ -5,13 +5,17 @@ import { insertSession } from "../../databases/Local";
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
     alignItems: 'center',
     gap: 16,
   },
   underlinedLink: {
     marginTop: 16,
     textDecorationLine: 'underline',
+  },
+  image: {
+    width: 150,
+    height: 150,
+    marginVertical: 24,
   }
 });
 

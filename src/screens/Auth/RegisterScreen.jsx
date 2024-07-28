@@ -1,4 +1,4 @@
-import { View, Text, Pressable } from "react-native";
+import { View, Text, Pressable, Image } from "react-native";
 import React, { useEffect, useState } from "react";
 import InputForm from "../../components/InputForm";
 import SubmitBtn from "../../components/SubmitBtn";
@@ -76,10 +76,13 @@ const RegisterScreen = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
+      <Image source={require('../../../assets/logo.png')} style={styles.image} resizeMode='cover' />
+      
       <InputForm
         label={i18n.t("email")}
         error={errorEmail}
         onChange={setEmail}
+        autoCompleteType="email"
       />
       <InputForm
         label={i18n.t("password")}

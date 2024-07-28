@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, Button, Pressable } from 'react-native'
+import { View, Text, StyleSheet, Button, Pressable, Image } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import InputForm from '../../components/InputForm';
 import i18n from '../../translations/i18n';
@@ -37,7 +37,7 @@ const LoginScreen = ({navigation}) => {
     setErrorPassword('')
   }
   
-  const handleLogin = () => {
+  const onLogin = () => {
     clearErrors()
 
     try {
@@ -70,9 +70,10 @@ const LoginScreen = ({navigation}) => {
 
   return (
     <View style={styles.container}>
-      <InputForm label={i18n.t('email')} error={errorEmail} onChange={setEmail} />
-      <InputForm label={i18n.t('password')} error={errorPassword} isSecure onChange={setPassword} />
-      <SubmitBtn onPress={handleLogin} text={i18n.t('login')} />
+      <Image source={require('../../../assets/logo.png')} style={styles.image} resizeMode='cover' />
+      <InputForm label={i18n.t('email')} error={errorEmail} onChange={setEmail} autoCompleteType='email' />
+      <InputForm label={i18n.t('password')} error={errorPassword} isSecure onChange={setPassword} autoCompleteType='password' />
+      <SubmitBtn onPress={onLogin} text={i18n.t('login')} />
       <Pressable
         onPress={() => navigation.navigate('Register')}
       >
