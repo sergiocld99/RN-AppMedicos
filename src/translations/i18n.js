@@ -30,6 +30,8 @@ const translations = {
     profile: 'Profile',
     replace_photo: 'Replace photo',
     doctor_detail: 'Doctor Detail',
+    confirm: 'Confirm',
+    take_another_photo: 'Take another photo'
   },
   es: {
     login: 'Ingresar',
@@ -58,6 +60,8 @@ const translations = {
     profile: 'Perfil',
     replace_photo: 'Reemplazar foto',
     doctor_detail: 'Detalle del médico',
+    confirm: 'Confirmar',
+    take_another_photo: 'Tomar otra foto'
   },
 }
 

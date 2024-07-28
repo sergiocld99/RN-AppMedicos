@@ -7,6 +7,7 @@ import { deleteSession } from '../databases/Local';
 // Importación de iconos
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import RoundedProfilePic from './RoundedProfilePic';
+import { colors } from '../global/colors';
 
 const MainHeader = ({title}) => {
   const { localId, profilePicture } = useSelector(state => state.auth.value)
@@ -52,7 +53,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     height: 60,
-    backgroundColor: 'lightblue',
+    backgroundColor: colors.headerBackground,
     paddingHorizontal: 20,
   },
   title: {

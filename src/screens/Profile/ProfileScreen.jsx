@@ -18,7 +18,7 @@ const ProfileScreen = ({navigation}) => {
       <RoundedProfilePic pic={pic} size={200} />
 
       {/* Botón para reemplazo de foto */}
-      <SubmitBtn text={i18n.t('replace_photo')} onPress={() => navigation.navigate('ProfilePicSelector')} />
+      <SubmitBtn text={i18n.t('replace_photo')} onPress={() => navigation.navigate('PictureSelector')} />
     </View>
   )
 }
