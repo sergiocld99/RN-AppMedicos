@@ -3,10 +3,10 @@ import React from "react";
 import i18n from "../translations/i18n";
 import ReviewCard from "./ReviewCard";
 
-const ReviewsSection = ({ list }) => {
+const AppointmentsSection = ({ list }) => {
   return (
     <>
-      <Text style={styles.title}>{i18n.t("reviews")}</Text>
+      <Text style={styles.title}>{i18n.t("next_appointments")}</Text>
       {list?.length ? (
         <FlatList
           data={list}
@@ -14,13 +14,13 @@ const ReviewsSection = ({ list }) => {
           renderItem={({ item }) => <ReviewCard review={item} />}
         />
       ) : (
-        <Text style={{ textAlign: "center" }}>{i18n.t("no_reviews")}</Text>
+        <Text style={{ textAlign: "center" }}>{i18n.t("no_appointments")}</Text>
       )}
     </>
   );
 };
 
-export default ReviewsSection;
+export default AppointmentsSection;
 
 const styles = StyleSheet.create({
   title: {

@@ -6,6 +6,7 @@ export const doctorListApi = createApi({
   reducerPath: "doctorListApi",
   baseQuery: fetchBaseQuery({ baseUrl: realtimeDatabaseUrl }),
   endpoints: (builder) => ({
+    // Endpoints para obtener médicos y especialidades
     getSpecialties: builder.query({
       query: () => "especialidades.json",
     }),
@@ -29,7 +30,19 @@ export const doctorListApi = createApi({
         method: "PUT",
         body: {image},
       }),
-    })
+    }),
+
+    // Endpoints para obtener y publicar turnos
+    getAppointments: builder.query({
+      query: ({ localId }) => `turnos/${localId}.json`,
+    }),
+    postAppointment: builder.mutation({
+      query: ({ localId, appointment }) => ({
+        url: `turnos/${localId}.json`,
+        method: "POST",
+        body: { appointment },
+      }),
+    }),
   }),
 });
 
@@ -38,6 +51,8 @@ export const {
   useGetSpecialtiesQuery,
   useGetDoctorsBySpecialtyQuery,
   useGetDoctorByIdQuery,
-  useUpdateProfilePhotoMutation,
   useGetProfilePhotoQuery,
+  useUpdateProfilePhotoMutation,
+  useGetAppointmentsQuery,
+  usePostAppointmentMutation,
 } = doctorListApi;

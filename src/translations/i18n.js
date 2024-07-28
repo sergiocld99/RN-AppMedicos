@@ -33,6 +33,8 @@ const translations = {
     confirm: 'Confirm',
     take_another_photo: 'Take another photo',
     discard_changes: 'Discard changes',
+    next_appointments: 'Next Appointments',
+    no_appointments: 'You have no appointments scheduled',
   },
   es: {
     login: 'Ingresar',
@@ -64,6 +66,8 @@ const translations = {
     confirm: 'Confirmar',
     take_another_photo: 'Tomar otra foto',
     discard_changes: 'Descartar cambios',
+    next_appointments: 'Próximos turnos',
+    no_appointments: 'No tienes turnos agendados',
   },
 }
 

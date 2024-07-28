@@ -30,7 +30,7 @@ const DoctorDetail = ({ navigation }) => {
       {data ? (
         <View>
           <DoctorCard doctor={data} />
-          <ReviewsSection reviews={comments} />          
+          <ReviewsSection list={comments} />          
           <Text style={styles.title}>{i18n.t("location")}</Text>
           <MapPreview location={data.ubicación} />
         </View>

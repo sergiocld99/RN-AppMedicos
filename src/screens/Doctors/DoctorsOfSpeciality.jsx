@@ -2,11 +2,9 @@ import { FlatList, StyleSheet, Text, View } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import { colors } from '../../global/colors';
 import { useGetDoctorsBySpecialtyQuery } from '../../services/doctorListService';
-import SingleTextCard from '../../components/SingleTextCard';
 import DoctorCard from '../../components/DoctorCard';
 import { useDispatch, useSelector } from 'react-redux';
 import { setDoctorIdSelected } from '../../features/DoctorsSlice';
-import i18n from '../../translations/i18n';
 import LoadingManagement from '../../components/LoadingManagement';
 
 const DoctorsOfSpeciality = ({navigation}) => {
@@ -41,7 +39,7 @@ const DoctorsOfSpeciality = ({navigation}) => {
         ({ item }) => (
           <DoctorCard doctor={item} onPress={() => {
             dispatch(setDoctorIdSelected(item.id));
-            navigation.navigate("DoctorDetail"); 
+            navigation.navigate("DoctorDetail", { specialty: item.especialidad }); 
           }} />
         )
       } />

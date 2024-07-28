@@ -9,14 +9,14 @@ const Stack = createNativeStackNavigator();
 
 const DoctorsStackNav = () => {
 
-  const getTitle = (routeName) => {
-    switch(routeName){
+  const getTitle = (route) => {
+    switch(route.name){
       case 'Specialties':
         return i18n.t('specialties')
       case 'DoctorsOfSpecialty':
         return i18n.t('doctors')
       case 'DoctorDetail':
-        return i18n.t('doctor_detail')
+        return route.params?.specialty
       default:
         return routeName
     }
@@ -25,7 +25,7 @@ const DoctorsStackNav = () => {
   return (
     <Stack.Navigator
       screenOptions={({ route }) => ({
-        header: () => <MainHeader title={getTitle(route.name)} />,
+        header: () => <MainHeader title={getTitle(route)} />,
       })}
     >
       <Stack.Screen name="Specialties" component={Specialties} />
