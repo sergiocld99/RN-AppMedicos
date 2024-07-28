@@ -28,8 +28,14 @@ export const authSlice = createSlice({
         profilePicture: null,
       }
     },
+    setProfilePicture: (state, action) => {
+      state.value = {
+        ...state.value,
+        profilePicture: action.payload,
+      }
+    },
   },
 });
 
-export const { login, logout } = authSlice.actions;
+export const { login, logout, setProfilePicture } = authSlice.actions;
 export default authSlice

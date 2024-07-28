@@ -18,6 +18,18 @@ export const doctorListApi = createApi({
       query: (id) => `medicos.json?orderBy="id"&equalTo=${id}`,
       transformResponse: (response) => Object.values(response)[0],
     }),
+
+    // Endpoints para obtener y actualizar fotos de perfil
+    getProfilePhoto: builder.query({
+      query: ({localId}) => `pfp/${localId}.json`,
+    }),
+    updateProfilePhoto: builder.mutation({
+      query: ({ localId, image }) => ({
+        url: `pfp/${localId}.json`,
+        method: "PUT",
+        body: {image},
+      }),
+    })
   }),
 });
 
@@ -26,4 +38,6 @@ export const {
   useGetSpecialtiesQuery,
   useGetDoctorsBySpecialtyQuery,
   useGetDoctorByIdQuery,
+  useUpdateProfilePhotoMutation,
+  useGetProfilePhotoQuery,
 } = doctorListApi;

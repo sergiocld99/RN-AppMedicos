@@ -31,7 +31,8 @@ const translations = {
     replace_photo: 'Replace photo',
     doctor_detail: 'Doctor Detail',
     confirm: 'Confirm',
-    take_another_photo: 'Take another photo'
+    take_another_photo: 'Take another photo',
+    discard_changes: 'Discard changes',
   },
   es: {
     login: 'Ingresar',
@@ -61,7 +62,8 @@ const translations = {
     replace_photo: 'Reemplazar foto',
     doctor_detail: 'Detalle del médico',
     confirm: 'Confirmar',
-    take_another_photo: 'Tomar otra foto'
+    take_another_photo: 'Tomar otra foto',
+    discard_changes: 'Descartar cambios',
   },
 }
 
