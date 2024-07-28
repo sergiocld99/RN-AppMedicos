@@ -10,6 +10,7 @@ import DoctorsStackNav from "./Tabs/DoctorsStackNav";
 import AppointmentsStackNav from "./Tabs/AppointmentsStackNav";
 import MapStackNav from "./Tabs/MapStackNav";
 import ProfileStackNav from "./Tabs/ProfileStackNav";
+import i18n from "../translations/i18n";
 
 
 const Tab = createBottomTabNavigator()
@@ -34,21 +35,25 @@ const MainTabsNavigator = () => {
     }>
       <Tab.Screen name="DoctorsTab" component={DoctorsStackNav} options={
         {
+          tabBarLabel: i18n.t("doctors"),
           tabBarIcon: ({ focused }) => <MaterialCommunityIcons name="doctor" size={24} color={getIconColor(focused)} />
         }
       } />
       <Tab.Screen name="AppointmentsTab" component={AppointmentsStackNav} options={
         {
+          tabBarLabel: i18n.t("appointments"),
           tabBarIcon: ({ focused }) => <MaterialIcons name="event" size={24} color={getIconColor(focused)} />
         }
       } />
       <Tab.Screen name="MapTab" component={MapStackNav} options={
         {
+          tabBarLabel: i18n.t("map"),
           tabBarIcon: ({ focused }) => <MaterialIcons name="map" size={24} color={getIconColor(focused)} />
         }
       } />
       <Tab.Screen name="ProfileTab" component={ProfileStackNav} options={
         {
+          tabBarLabel: i18n.t("profile"),
           tabBarIcon: ({ focused }) => <MaterialCommunityIcons name="account" size={24} color={getIconColor(focused)} />
         }
       } />

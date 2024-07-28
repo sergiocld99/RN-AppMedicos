@@ -19,7 +19,13 @@ const translations = {
     passwordMinRequired: `Password must be at least ${PASSWORD_MIN_LENGTH} characters long`,
     specialties: 'Specialties',
     reviews: 'Reviews',
+    no_reviews: 'No reviews yet',
     loading: 'Loading...',
+    location: 'Location',
+    doctors: 'Doctors',
+    appointments: 'Appointments',
+    map: 'Map',
+    profile: 'Profile',
   },
   es: {
     login: 'Ingresar',
@@ -37,7 +43,13 @@ const translations = {
     passwordMinRequired: `La contraseña debe tener al menos ${PASSWORD_MIN_LENGTH} caracteres`,
     specialties: 'Especialidades',
     reviews: 'Opiniones',
+    no_reviews: 'No hay opiniones disponibles',
     loading: 'Cargando...',
+    location: 'Ubicación',
+    doctors: 'Médicos',
+    appointments: 'Turnos',
+    map: 'Mapa',
+    profile: 'Perfil',
   },
 }
 

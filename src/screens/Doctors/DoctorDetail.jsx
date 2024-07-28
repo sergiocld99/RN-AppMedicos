@@ -6,6 +6,8 @@ import DoctorCard from "../../components/DoctorCard";
 import i18n from "../../translations/i18n";
 import SingleTextCard from "../../components/SingleTextCard";
 import ReviewCard from "../../components/ReviewCard";
+import ReviewsSection from "../../components/ReviewsSection";
+import MapPreview from "../../components/MapPreview";
 
 const DoctorDetail = ({ navigation }) => {
   const doctorId = useSelector((state) => state.doctors.value.doctorIdSelected);
@@ -26,12 +28,9 @@ const DoctorDetail = ({ navigation }) => {
       {data ? (
         <View>
           <DoctorCard doctor={data} />
-          <Text style={styles.title}>{i18n.t("reviews")}</Text>
-          <FlatList data={comments} keyExtractor={item => item.comentario} renderItem={
-            ({ item }) => (
-              <ReviewCard review={item} />
-            )
-          } />
+          <ReviewsSection reviews={comments} />          
+          <Text style={styles.title}>{i18n.t("location")}</Text>
+          <MapPreview location={data.ubicación} />
         </View>
       ) : (
         <Text>{i18n.t("loading")}</Text>
@@ -50,3 +49,4 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
 });
+
