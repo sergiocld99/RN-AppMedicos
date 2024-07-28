@@ -1,17 +1,24 @@
 import { FlatList, StyleSheet, Text, View } from "react-native";
 import React from "react";
 import i18n from "../translations/i18n";
-import ReviewCard from "./ReviewCard";
+import AppointmentCard from "./AppointmentCard";
 
-const AppointmentsSection = ({ list }) => {
+const AppointmentsSection = ({ list = [] }) => {
+  
+  // Ordenar turnos por fecha y hora
+  const sortedList = [...list].sort((a, b) => {
+    return a.timestamp.localeCompare(b.timestamp);
+  });
+
   return (
     <>
       <Text style={styles.title}>{i18n.t("next_appointments")}</Text>
-      {list?.length ? (
+      {sortedList.length ? (
         <FlatList
-          data={list}
-          keyExtractor={(item) => item.comentario}
-          renderItem={({ item }) => <ReviewCard review={item} />}
+          data={sortedList}
+          keyExtractor={(item) => item.timestamp }
+          renderItem={({ item }) => <AppointmentCard data={item} />}
+          style={{ width: "100%" }}
         />
       ) : (
         <Text style={{ textAlign: "center" }}>{i18n.t("no_appointments")}</Text>

@@ -2,9 +2,10 @@ import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import { colors } from '../../global/colors'
 import i18n from '../../translations/i18n'
-import { useGetAppointmentsQuery } from '../../services/doctorListService'
+import { useGetAppointmentsOfUserQuery, useGetAppointmentsQuery } from '../../services/doctorListService'
 import { useSelector } from 'react-redux'
 import AppointmentsSection from '../../components/AppointmentsSection'
+import LoadingManagement from '../../components/LoadingManagement'
 
 /**
  * Pantalla de turnos agendados
@@ -14,7 +15,7 @@ const AppointmentsScreen = ({navigation}) => {
   const { localId } = useSelector((state) => state.auth.value);
 
   // Obtener turnos del usuario
-  const { data: appointments, isLoading, isError } = useGetAppointmentsQuery({localId});
+  const { data: appointments } = useGetAppointmentsOfUserQuery(localId);
 
   return (
     <View style={styles.container}>

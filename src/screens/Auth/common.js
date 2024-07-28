@@ -1,7 +1,6 @@
 import { StyleSheet } from "react-native";
 import { login } from "../../features/UserSlice";
 import { insertSession } from "../../databases/Local";
-import { useGetProfilePhotoQuery } from "../../services/doctorListService";
 
 export const styles = StyleSheet.create({
   container: {

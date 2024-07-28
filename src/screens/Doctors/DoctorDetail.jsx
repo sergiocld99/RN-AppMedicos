@@ -1,6 +1,6 @@
 import { FlatList, StyleSheet, Text, View } from "react-native";
 import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useGetDoctorByIdQuery } from "../../services/doctorListService";
 import DoctorCard from "../../components/DoctorCard";
 import i18n from "../../translations/i18n";
@@ -9,10 +9,14 @@ import ReviewCard from "../../components/ReviewCard";
 import ReviewsSection from "../../components/ReviewsSection";
 import MapPreview from "../../components/MapPreview";
 import LoadingManagement from "../../components/LoadingManagement";
+import { colors } from "../../global/colors";
+import SubmitBtn from "../../components/SubmitBtn";
+import { setDoctorIdSelected, setLocationSelected } from "../../features/DoctorsSlice";
 
 const DoctorDetail = ({ navigation }) => {
   const doctorId = useSelector((state) => state.doctors.value.doctorIdSelected);
   const [comments, setComments] = useState([]);
+  const dispatch = useDispatch()
 
   // Obtener detalles del doctor por ID
   const { data, isLoading, isError } = useGetDoctorByIdQuery(doctorId);
@@ -24,15 +28,30 @@ const DoctorDetail = ({ navigation }) => {
     }
   }, [data])
 
+  // Armado del nombre completo del médico
+  const fullName = data ? `${data.sexo === 'M' ? 'Dr.' : 'Dra.'} ${data.apellido}, ${data.nombre}` : '';
+
+  // Apertura de la ubicación en el mapa
+  const onOpenLocation = () => {
+    dispatch(setLocationSelected(data.ubicación));
+    navigation.navigate("LocationPreview", { fullName });
+  };
+
+  // Realización de un turno con el médico
+  const onMakeAppointment = () => {
+    dispatch(setDoctorIdSelected(data.id));
+    navigation.navigate("AppointmentForm");
+  };
+
   return (
-    <View>
+    <View style={styles.container}>
       <LoadingManagement isLoading={isLoading} isError={isError} />
       {data ? (
-        <View>
+        <View style={styles.infoContainer}>
           <DoctorCard doctor={data} />
-          <ReviewsSection list={comments} />          
-          <Text style={styles.title}>{i18n.t("location")}</Text>
-          <MapPreview location={data.ubicación} />
+          <ReviewsSection list={comments} />   
+          <SubmitBtn text={i18n.t('view_location')} onPress={onOpenLocation} width="70%" />
+          <SubmitBtn text={i18n.t('make_appointment')} onPress={onMakeAppointment} width="70%" />     
         </View>
       ) : (
         <Text>{i18n.t("loading")}</Text>
@@ -44,11 +63,17 @@ const DoctorDetail = ({ navigation }) => {
 export default DoctorDetail;
 
 const styles = StyleSheet.create({
-  title: {
-    fontSize: 24,
-    fontWeight: "bold",
-    margin: 16,
-    textAlign: "center",
+  container: {
+    flex: 1,
+    backgroundColor: colors.background,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  infoContainer: {
+    flex: 1,
+    width: "100%",
+    padding: 16,
+    alignItems: "center",
   },
 });
 

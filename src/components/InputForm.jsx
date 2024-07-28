@@ -1,7 +1,17 @@
-import { View, Text, TextInput, StyleSheet } from "react-native";
+import { View, Text, TextInput, StyleSheet, Pressable } from "react-native";
 import React, { useState } from "react";
 
-const InputForm = ({ label, error = "", isSecure = false, autoCompleteType = '', onChange }) => {
+const InputForm = ({
+  label,
+  error = "",
+  isSecure = false,
+  autoCompleteType = "",
+  placeholder = "",
+  onChange = () => {},
+  onPress = () => {},
+  editable = true,
+  fixedValue = ""
+}) => {
   // Estado del campo de texto
   const [input, setInput] = useState("");
 
@@ -12,19 +22,21 @@ const InputForm = ({ label, error = "", isSecure = false, autoCompleteType = '',
   };
 
   return (
-    <View style={styles.container}>
+    <Pressable style={styles.container} onPress={onPress}>
       <Text style={styles.label}>{label}</Text>
       <TextInput
         style={styles.input}
-        value={input}
+        value={fixedValue || input}
         onChangeText={onInputChange}
         secureTextEntry={isSecure}
         autoComplete={autoCompleteType}
+        placeholder={placeholder}
+        editable={editable}
       />
 
       {/* Mostrar mensaje de error en caso de existir */}
       {error && <Text style={styles.error}>{error}</Text>}
-    </View>
+    </Pressable>
   );
 };
 

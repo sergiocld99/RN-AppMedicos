@@ -22,3 +22,8 @@ export const registerSchema = object().shape({
     .oneOf([ref("password"), null], i18n.t("passwordsMustMatch"))
     .required(i18n.t("confirmPasswordRequired")),
 });
+
+export const appointmentSchema = object().shape({
+  date: string().required(i18n.t("date_required")),
+  time: string().required(i18n.t("time_required")),
+});

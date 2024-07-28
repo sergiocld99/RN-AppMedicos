@@ -1,6 +1,7 @@
 import { getLocales } from 'expo-localization'
 import { I18n } from 'i18n-js'
 import { PASSWORD_MIN_LENGTH } from '../constants'
+import { date } from 'yup'
 
 const translations = {
   en: {
@@ -35,6 +36,17 @@ const translations = {
     discard_changes: 'Discard changes',
     next_appointments: 'Next Appointments',
     no_appointments: 'You have no appointments scheduled',
+    view_location: 'View location',
+    make_appointment: 'Make appointment',
+    appointment_form: 'Appointment Form',
+    select_date: 'Select a date',
+    select_time: 'Select a time',
+    input_reason: 'Input a reason',
+    date: 'Date',
+    time: 'Time',
+    reason: 'Reason',
+    date_required: 'Date is required',
+    time_required: 'Time is required',
   },
   es: {
     login: 'Ingresar',
@@ -68,6 +80,17 @@ const translations = {
     discard_changes: 'Descartar cambios',
     next_appointments: 'Próximos turnos',
     no_appointments: 'No tienes turnos agendados',
+    view_location: 'Ver ubicación',
+    make_appointment: 'Solicitar turno',
+    appointment_form: 'Solicitud de turno',
+    select_date: 'Selecciona una fecha',
+    select_time: 'Selecciona un horario',
+    input_reason: 'Motivo de la consulta',
+    date: 'Fecha',
+    time: 'Hora',
+    reason: 'Motivo',
+    date_required: 'La fecha es obligatoria',
+    time_required: 'La hora es obligatoria',
   },
 }
 

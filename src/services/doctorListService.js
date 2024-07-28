@@ -1,10 +1,17 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { realtimeDatabaseUrl } from "../databases/Remote";
 
+// Etiquetas para invalidar caché
+const invalidationTags = {
+  ProfilePhotoGet: ["ProfilePhotoGet"],
+  AppointmentsGet: ["AppointmentsGet"],
+};
+
 // Crear el API para la lista de médicos y especialidades
 export const doctorListApi = createApi({
   reducerPath: "doctorListApi",
   baseQuery: fetchBaseQuery({ baseUrl: realtimeDatabaseUrl }),
+  tagTypes: ["ProfilePhotoGet", "AppointmentsGet"],
   endpoints: (builder) => ({
     // Endpoints para obtener médicos y especialidades
     getSpecialties: builder.query({
@@ -23,6 +30,7 @@ export const doctorListApi = createApi({
     // Endpoints para obtener y actualizar fotos de perfil
     getProfilePhoto: builder.query({
       query: ({localId}) => `pfp/${localId}.json`,
+      providesTags: invalidationTags.ProfilePhotoGet,
     }),
     updateProfilePhoto: builder.mutation({
       query: ({ localId, image }) => ({
@@ -30,18 +38,22 @@ export const doctorListApi = createApi({
         method: "PUT",
         body: {image},
       }),
+      invalidatesTags: invalidationTags.ProfilePhotoGet,
     }),
 
     // Endpoints para obtener y publicar turnos
-    getAppointments: builder.query({
-      query: ({ localId }) => `turnos/${localId}.json`,
+    getAppointmentsOfUser: builder.query({
+      query: ( localId ) => `turnos.json?orderBy="userId"&equalTo="${localId}"`,
+      transformResponse: (response) => Object.values(response),
+      providesTags: invalidationTags.AppointmentsGet,
     }),
     postAppointment: builder.mutation({
-      query: ({ localId, appointment }) => ({
-        url: `turnos/${localId}.json`,
+      query: ({ ...appointment }) => ({
+        url: `turnos.json`,
         method: "POST",
-        body: { appointment },
+        body: appointment,
       }),
+      invalidatesTags: invalidationTags.AppointmentsGet,
     }),
   }),
 });
@@ -53,6 +65,6 @@ export const {
   useGetDoctorByIdQuery,
   useGetProfilePhotoQuery,
   useUpdateProfilePhotoMutation,
-  useGetAppointmentsQuery,
+  useGetAppointmentsOfUserQuery,
   usePostAppointmentMutation,
 } = doctorListApi;
