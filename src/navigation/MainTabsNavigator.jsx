@@ -31,6 +31,7 @@ const MainTabsNavigator = () => {
       {
         tabBarActiveTintColor: colors.focusedIcon,
         tabBarInactiveTintColor: colors.unfocusedIcon,
+        headerShown: false
       }
     }>
       <Tab.Screen name="DoctorsTab" component={DoctorsStackNav} options={

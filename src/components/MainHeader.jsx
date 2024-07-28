@@ -1,6 +1,6 @@
 import React from 'react'
 import { Pressable, StyleSheet, Text, View } from 'react-native'
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { logout } from '../features/UserSlice';
 import { deleteSession } from '../databases/Local';
 
@@ -8,7 +8,7 @@ import { deleteSession } from '../databases/Local';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 const MainHeader = ({title}) => {
-  const { localId } = useSelector(state => state.authSlice.value)
+  const { localId } = useSelector(state => state.auth.value)
   const dispatch = useDispatch()
 
   // Función de cerrar sesión

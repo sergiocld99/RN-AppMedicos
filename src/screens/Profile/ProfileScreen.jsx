@@ -9,7 +9,7 @@ import { colors } from '../../global/colors'
  * Pantalla de perfil de usuario
  */
 const ProfileScreen = ({navigation}) => {
-  const pic = useSelector(state => state.authSlice.value.profilePicture)
+  const pic = useSelector(state => state.auth.value.profilePicture)
 
   return (
     <View style={styles.container}>
@@ -32,8 +32,11 @@ export default ProfileScreen
 
 const styles = StyleSheet.create({
   container: {
+    justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: colors.background,
+    flex: 1,
+    gap: 20,
   },
   image: {
     width: 200,

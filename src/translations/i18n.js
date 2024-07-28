@@ -29,6 +29,7 @@ const translations = {
     map: 'Map',
     profile: 'Profile',
     replace_photo: 'Replace photo',
+    doctor_detail: 'Doctor Detail',
   },
   es: {
     login: 'Ingresar',
@@ -56,6 +57,7 @@ const translations = {
     map: 'Mapa',
     profile: 'Perfil',
     replace_photo: 'Reemplazar foto',
+    doctor_detail: 'Detalle del médico',
   },
 }
 

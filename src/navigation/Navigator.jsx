@@ -31,7 +31,7 @@ const Navigator = () => {
   // Renderizar el navegador principal o el de autenticación 
   // dependiendo si hay un usuario logueado o no
   return (
-    <NavigationContainer>
+    <NavigationContainer >
       {user ? (
         <MainTabsNavigator />
       ) : (
