@@ -6,12 +6,15 @@ import SingleTextCard from '../../components/SingleTextCard';
 import DoctorCard from '../../components/DoctorCard';
 import { useDispatch, useSelector } from 'react-redux';
 import { setDoctorIdSelected } from '../../features/DoctorsSlice';
+import i18n from '../../translations/i18n';
+import LoadingManagement from '../../components/LoadingManagement';
 
 const DoctorsOfSpeciality = ({navigation}) => {
   const specialty = useSelector(state => state.doctors.value.specialtySelected);
 
   // Estado para almacenar los doctores
   const [doctors, setDoctors] = useState([]);
+  const [noData, setNoData] = useState(false);
   
   const dispatch = useDispatch();
 
@@ -21,14 +24,19 @@ const DoctorsOfSpeciality = ({navigation}) => {
   // Ordenar doctores por apellido al cargar los datos
   useEffect(() => {
     if (data) {
-      const sortedBySurname = [...data].sort((a, b) => (a.apellido + a.nombre).localeCompare(b.apellido + b.nombre));
-      setDoctors(sortedBySurname);
+      if (data.length === 0) {
+        setNoData(true);
+      } else {
+        const sortedBySurname = [...data].sort((a, b) => (a.apellido + a.nombre).localeCompare(b.apellido + b.nombre));
+        setDoctors(sortedBySurname);
+      }
     }
   }, [data])
 
   return (
     <View style={styles.container}>
       <Text style={styles.title}>{specialty}</Text>
+      <LoadingManagement isLoading={isLoading} isError={isError} noData={noData} />
       <FlatList data={doctors} keyExtractor={item => item.id} renderItem={
         ({ item }) => (
           <DoctorCard doctor={item} onPress={() => {
@@ -54,5 +62,6 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     margin: 16,
     textAlign: "center"
-  }
+  },
+  
 })

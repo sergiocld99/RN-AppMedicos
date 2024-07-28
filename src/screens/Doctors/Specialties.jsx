@@ -6,23 +6,30 @@ import { colors } from "../../global/colors";
 import SingleTextCard from "../../components/SingleTextCard";
 import { setSpecialtySelected } from "../../features/DoctorsSlice";
 import i18n from "../../translations/i18n";
+import LoadingManagement from "../../components/LoadingManagement";
 
 const Specialties = ({ navigation }) => {
   const [specialties, setSpecialties] = useState([]);
+  const [noData, setNoData] = useState(false);
 
   const dispatch = useDispatch();
   const { data, isLoading, isError } = useGetSpecialtiesQuery();
 
   useEffect(() => {
     if (data){
-      const sortedByName = [...data].sort((a, b) => a.localeCompare(b));
-      setSpecialties(sortedByName);
+      if (data.length === 0) {
+        setNoData(true);
+      } else {
+        const sortedByName = [...data].sort((a, b) => a.localeCompare(b));
+        setSpecialties(sortedByName);
+      }
     }
   }, [data])
 
   return (
     <View style={styles.container}>
       <Text style={styles.title}>{i18n.t('specialties')}</Text>
+      <LoadingManagement isLoading={isLoading} isError={isError} noData={noData} />
       <FlatList data={specialties} keyExtractor={item => item} renderItem={
         ({ item }) => (
           <SingleTextCard text={item} onPress={() => {

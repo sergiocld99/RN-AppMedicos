@@ -8,6 +8,7 @@ import SingleTextCard from "../../components/SingleTextCard";
 import ReviewCard from "../../components/ReviewCard";
 import ReviewsSection from "../../components/ReviewsSection";
 import MapPreview from "../../components/MapPreview";
+import LoadingManagement from "../../components/LoadingManagement";
 
 const DoctorDetail = ({ navigation }) => {
   const doctorId = useSelector((state) => state.doctors.value.doctorIdSelected);
@@ -25,6 +26,7 @@ const DoctorDetail = ({ navigation }) => {
 
   return (
     <View>
+      <LoadingManagement isLoading={isLoading} isError={isError} />
       {data ? (
         <View>
           <DoctorCard doctor={data} />
