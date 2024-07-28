@@ -28,6 +28,7 @@ const translations = {
     appointments: 'Appointments',
     map: 'Map',
     profile: 'Profile',
+    replace_photo: 'Replace photo',
   },
   es: {
     login: 'Ingresar',
@@ -54,6 +55,7 @@ const translations = {
     appointments: 'Turnos',
     map: 'Mapa',
     profile: 'Perfil',
+    replace_photo: 'Reemplazar foto',
   },
 }
 

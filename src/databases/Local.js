@@ -19,6 +19,9 @@ const INSERT_SESSION = `INSERT INTO ${TABLE_NAME} (local_id, email, token) VALUE
 // Sentencia para recuperar la sesión guardada
 const SELECT_SESSION = `SELECT * FROM ${TABLE_NAME}`
 
+// Sentencia para borrar la sesión según el id
+const DELETE_SESSION = `DELETE FROM ${TABLE_NAME} WHERE local_id = ?`
+
 // Inicialización de la base de datos local, creando la tabla si no existe
 export const init = () => (
   new Promise((resolve, reject) => {
@@ -44,6 +47,15 @@ export const getSessions = () => (
       tx.executeSql(SELECT_SESSION, [], (_, { rows }) => {
         resolve(rows._array)
       }, reject)
+    })
+  })
+)
+
+// Borrar la sesión corresponde al id pasado como parámetro
+export const deleteSession = ({localId}) => (
+  new Promise((resolve, reject) => {
+    db.transaction((tx) => {
+      tx.executeSql(DELETE_SESSION, [localId], resolve, reject)
     })
   })
 )

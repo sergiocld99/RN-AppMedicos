@@ -7,6 +7,7 @@ export const authSlice = createSlice({
       user: null,
       token: null,
       localId: null,
+      profilePicture: null,
     }
   },
   reducers: {
@@ -24,6 +25,7 @@ export const authSlice = createSlice({
         user: null,
         token: null,
         localId: null,
+        profilePicture: null,
       }
     },
   },
