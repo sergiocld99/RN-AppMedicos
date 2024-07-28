@@ -6,9 +6,10 @@ import { deleteSession } from '../databases/Local';
 
 // Importación de iconos
 import { MaterialCommunityIcons } from '@expo/vector-icons';
+import RoundedProfilePic from './RoundedProfilePic';
 
 const MainHeader = ({title}) => {
-  const { localId } = useSelector(state => state.auth.value)
+  const { localId, profilePicture } = useSelector(state => state.auth.value)
   const dispatch = useDispatch()
 
   // Función de cerrar sesión
@@ -29,10 +30,16 @@ const MainHeader = ({title}) => {
       {/* Título de la pantalla */}
       <Text style={styles.title}>{title}</Text>
       
-      {/* Ícono para cerrar sesión */}
-      <Pressable onPress={onLogout}>
-        <MaterialCommunityIcons name="power" size={24} color="black" />
-      </Pressable>
+      {/* Parte derecha */}
+      <View style={styles.rightSide}>
+        {/* Foto de perfil */}
+        <RoundedProfilePic pic={profilePicture} size={28} />
+
+        {/* Ícono para cerrar sesión */}
+        <Pressable onPress={onLogout}>
+          <MaterialCommunityIcons name="power" size={28} color="black" />
+        </Pressable>
+      </View>
     </View>
   )
 }
@@ -52,4 +59,8 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: 'bold',
   },
+  rightSide: {
+    flexDirection: 'row',
+    gap: 16
+  }
 })
