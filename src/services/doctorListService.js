@@ -41,10 +41,9 @@ export const doctorListApi = createApi({
       invalidatesTags: invalidationTags.ProfilePhotoGet,
     }),
 
-    // Endpoints para obtener y publicar turnos
+    // Endpoints para obtener, publicar y eliminar turnos
     getAppointmentsOfUser: builder.query({
       query: ( localId ) => `turnos.json?orderBy="userId"&equalTo="${localId}"`,
-      transformResponse: (response) => Object.values(response),
       providesTags: invalidationTags.AppointmentsGet,
     }),
     postAppointment: builder.mutation({
@@ -55,6 +54,14 @@ export const doctorListApi = createApi({
       }),
       invalidatesTags: invalidationTags.AppointmentsGet,
     }),
+    deleteAppointment: builder.mutation({
+      query: (id) => ({
+        url: `turnos/${id}.json`,
+        method: "DELETE",
+      }),
+      invalidatesTags: invalidationTags.AppointmentsGet,
+    }),
+    
   }),
 });
 
@@ -67,4 +74,5 @@ export const {
   useUpdateProfilePhotoMutation,
   useGetAppointmentsOfUserQuery,
   usePostAppointmentMutation,
+  useDeleteAppointmentMutation
 } = doctorListApi;

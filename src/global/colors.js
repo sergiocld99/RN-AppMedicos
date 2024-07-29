@@ -3,4 +3,5 @@ export const colors = {
   focusedIcon: 'red',
   unfocusedIcon: 'gray',
   headerBackground: 'pink',
+  buttonColor: 'blue',
 }

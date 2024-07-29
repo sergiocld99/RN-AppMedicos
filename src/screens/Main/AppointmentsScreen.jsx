@@ -1,5 +1,5 @@
 import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { colors } from '../../global/colors'
 import i18n from '../../translations/i18n'
 import { useGetAppointmentsOfUserQuery, useGetAppointmentsQuery } from '../../services/doctorListService'
@@ -14,8 +14,19 @@ const AppointmentsScreen = ({navigation}) => {
   // Obtener el localId del usuario desde el store de Redux
   const { localId } = useSelector((state) => state.auth.value);
 
+  const [appointments, setAppointments] = useState([]);
+
   // Obtener turnos del usuario
-  const { data: appointments } = useGetAppointmentsOfUserQuery(localId);
+  const { data } = useGetAppointmentsOfUserQuery(localId);
+
+  useEffect(() => {
+    if (data) {
+      const keys = Object.keys(data);
+      const values = Object.values(data);
+      const transformedData = keys.map((key, index) => ({ documentId: key, ...values[index] }));
+      setAppointments(transformedData);
+    }
+  }, [data])
 
   return (
     <View style={styles.container}>

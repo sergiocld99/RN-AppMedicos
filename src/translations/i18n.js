@@ -47,6 +47,7 @@ const translations = {
     reason: 'Reason',
     date_required: 'Date is required',
     time_required: 'Time is required',
+    cancel: 'Cancel',
   },
   es: {
     login: 'Ingresar',
@@ -91,6 +92,7 @@ const translations = {
     reason: 'Motivo',
     date_required: 'La fecha es obligatoria',
     time_required: 'La hora es obligatoria',
+    cancel: 'Cancelar',
   },
 }
 

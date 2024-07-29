@@ -16,7 +16,7 @@ const AppointmentsSection = ({ list = [] }) => {
       {sortedList.length ? (
         <FlatList
           data={sortedList}
-          keyExtractor={(item) => item.timestamp }
+          keyExtractor={(item) => item.documentId }
           renderItem={({ item }) => <AppointmentCard data={item} />}
           style={{ width: "100%" }}
         />
