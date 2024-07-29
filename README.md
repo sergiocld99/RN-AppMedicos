@@ -4,11 +4,11 @@ Se encuentra desarrollado en React Native utilizando el framework Expo.
 
 ## Índice
 
-* [Instalación](#Instalación)
-* [Funcionalides](#Funcionalidades)
-* [Librerías empleadas](#Librerías_empleadas)
-* [Librerías adicionales](#Librerías_adicionales)
-* [Estructura de archivos](#Estructura_de_archivos)
+* [Instalación](#instalación)
+* [Funcionalides](#funcionalidades)
+* [Librerías empleadas](#librerías-empleadas)
+* [Librerías adicionales](#librerías-adicionales)
+* [Estructura de archivos](#estructura-de-archivos)
 
 ## Instalación
 En primer lugar, se debe instalar el CLI del framework mencionado de manera global con el siguiente comando: `npm install --global expo-cli`. 
@@ -35,6 +35,18 @@ La creación de estos objetos se encuentra simplificada mediante el uso de Redux
 - authService: se definen los endpoints para registrarse e iniciar sesión en Authentication.
 - doctorListService: posee todos los endpoints para obtención (GET), publicación (POST), actualización (PUT) y eliminación (DELETE) de datos en Realtime Database. Incluye a las consultas para obtener todas las especialidades médicas, los médicos filtrados por especialidad, detalle de un médico según ID, actualización de la foto de perfil del usuario, y por último, la obtención, creación y borrado de turnos del usuario. Se utilizan etiquetas (tags) para invalidar y refrescar la caché cuando se sabe que una consulta debe actualizarse, por ejemplo, el listado de turnos luego de que el usuario crea uno desde la app.
 
+### React Navigation
+Se utilizan las librerías @react-navigation/native, @react-navigation/native-stack y @react-navigation/bottom-tabs. La jerarquía de navegación de la aplicación es la siguiente:
+
+- Navigator: contenedor de navegación principal con `NavigationContainer`, importado de @react-navigation/native.
+  - AuthStackNavigator: navegador tipo pila (native-stack) que permite intercambiar entre la pantalla de Login y de Registro.
+  - MainTabsNavigator: utiliza pestañas en la parte inferior (bottom-tabs) con íconos y leyendas, que a su vez contienen native stacks.
+    - DoctorsStackNav: para intercambiar entre la lista de especialidades (Specialties), lista de médicos de una especialidad (DoctorsOfSpecialty), el detalle de un médico (DoctorDetail), la vista previa de una ubicación (LocationPreview) y el formulario de solicitud de turno (AppointmentForm).
+    - AppointmentsStackNav: únicamente contiene la pantalla de turnos asignados al usuario autenticado (AppointmentsScreen).
+    - ProfileStackNav: permite navegar entre la vista del perfil autenticado (ProfileScreen) y el gestor de actualización de foto (PictureSelector).
+
+En los native stacks se reemplazan el Header por defecto por un componente encabezado personalizado que permite mostrar el nombre de la pantalla en el idioma correspondiente. 
+
 ### Yup
 Permite definir schemas para validar un conjunto de campos de un formulario antes de enviarlo. De esta manera, permite identificar el campo con error y el mensaje a mostrar en el mismo, en lugar de una información genérica que puede brindar pocos detalles al usuario. Se implementaron 3 casos en este proyecto.
 
@@ -52,6 +64,9 @@ Esta librería permite el uso de la cámara del dispositivo y el acceso a los ar
 
 ### i18n-js
 La internacionalización de la aplicación es un aspecto importante considerando la accesibilidad de la misma. Mediante esta librería, se detalla un listado de pares clave-valor para cada idioma a disponibilizar (en este caso inglés y español), de forma tal que el mensaje a mostrar (valor) se obtiene mediante la función `t('clave')`.
+
+### DateTimePicker
+Se utiliza una librería de la comunidad (@react-native-community/datetimepicker) para mostrar diálogos amigables para el usuario al momento de seleccionar una fecha (a partir del día siguiente al actual) y una hora (hora y minutos) para solicitar un turno. De esta forma, también se evita crear controles más complejos para validar estos campos en dicho formulario.
 
 ## Estructura de archivos
 A nivel raíz, se encuentran el archivo App.js con el componente principal de la aplicación, el directorio assets que contiene imágenes locales, y el directorio src (source), cual contenido de cada subdirectorio se describe a continuación.
