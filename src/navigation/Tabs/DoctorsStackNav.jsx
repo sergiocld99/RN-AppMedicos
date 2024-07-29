@@ -20,7 +20,7 @@ const DoctorsStackNav = () => {
       case 'DoctorDetail':
         return route.params?.specialty
       case 'LocationPreview':
-        return route.params?.fullName
+        return i18n.t('location')
       case 'AppointmentForm':
         return i18n.t('appointment_form')
       default:

@@ -6,6 +6,7 @@ import DoctorCard from '../../components/DoctorCard';
 import { useDispatch, useSelector } from 'react-redux';
 import { setDoctorIdSelected } from '../../features/DoctorsSlice';
 import LoadingManagement from '../../components/LoadingManagement';
+import InternalHeader from '../../components/InternalHeader';
 
 const DoctorsOfSpeciality = ({navigation}) => {
   const specialty = useSelector(state => state.doctors.value.specialtySelected);
@@ -33,7 +34,7 @@ const DoctorsOfSpeciality = ({navigation}) => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>{specialty}</Text>
+      <InternalHeader title={specialty} navigation={navigation} />
       <LoadingManagement isLoading={isLoading} isError={isError} noData={noData} />
       <FlatList data={doctors} keyExtractor={item => item.id} renderItem={
         ({ item }) => (

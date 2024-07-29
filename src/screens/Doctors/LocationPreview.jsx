@@ -1,16 +1,22 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
-import i18n from '../../translations/i18n';
 import { useSelector } from 'react-redux';
 import MapPreview from '../../components/MapPreview';
+import { useGetDoctorByIdQuery } from '../../services/doctorListService';
+import InternalHeader from '../../components/InternalHeader';
+import { getFullName } from './common';
 
 const LocationPreview = ({navigation}) => {
   // Obtener latitud y longitud del state
-  const { locationSelected } = useSelector((state) => state.doctors.value);
+  const { doctorIdSelected } = useSelector((state) => state.doctors.value);
+
+  // Obtener detalles del doctor por ID
+  const { data, isLoading, isError } = useGetDoctorByIdQuery(doctorIdSelected);
 
   return (
     <View style={styles.container}>
-      <MapPreview location={locationSelected} />
+      <InternalHeader title={getFullName(data)} navigation={navigation} />
+      { data && <MapPreview location={data.ubicación} /> }
     </View>
   )
 }
@@ -21,6 +27,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: "center",
-    justifyContent: "center",
+    gap: 16,
   },
 })

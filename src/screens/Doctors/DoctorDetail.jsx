@@ -12,6 +12,8 @@ import LoadingManagement from "../../components/LoadingManagement";
 import { colors } from "../../global/colors";
 import SubmitBtn from "../../components/SubmitBtn";
 import { setDoctorIdSelected, setLocationSelected } from "../../features/DoctorsSlice";
+import { getFullName } from "./common";
+import InternalHeader from "../../components/InternalHeader";
 
 const DoctorDetail = ({ navigation }) => {
   const doctorId = useSelector((state) => state.doctors.value.doctorIdSelected);
@@ -29,7 +31,7 @@ const DoctorDetail = ({ navigation }) => {
   }, [data])
 
   // Armado del nombre completo del médico
-  const fullName = data ? `${data.sexo === 'M' ? 'Dr.' : 'Dra.'} ${data.apellido}, ${data.nombre}` : '';
+  const fullName = getFullName(data);
 
   // Apertura de la ubicación en el mapa
   const onOpenLocation = () => {
@@ -45,6 +47,7 @@ const DoctorDetail = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
+      <InternalHeader title={getFullName(data)} navigation={navigation} />
       <LoadingManagement isLoading={isLoading} isError={isError} />
       {data ? (
         <View style={styles.infoContainer}>

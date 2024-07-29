@@ -11,6 +11,7 @@ import SubmitBtn from "../../components/SubmitBtn";
 import i18n from "../../translations/i18n";
 import { appointmentSchema } from "../../validations/credentialsSchema";
 import DateTimePicker from "@react-native-community/datetimepicker";
+import InternalHeader from "../../components/InternalHeader";
 
 const AppointmentForm = ({ navigation }) => {
   // Obtener el ID del médico seleccionado del state
@@ -122,7 +123,7 @@ const AppointmentForm = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>{getFullName(data)}</Text>
+      <InternalHeader title={getFullName(data)} navigation={navigation} />
       <Image
         source={require("../../../assets/logo.png")}
         style={{ width: 100, height: 100, marginVertical: 16 }}
