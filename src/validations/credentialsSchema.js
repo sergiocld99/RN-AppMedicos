@@ -7,7 +7,6 @@ export const loginSchema = object().shape({
     .email(i18n.t("emailInvalid"))
     .required(i18n.t("emailRequired")),
   password: string()
-    .min(PASSWORD_MIN_LENGTH, i18n.t("passwordMinRequired"))
     .required(i18n.t("passwordRequired")),
 });
 

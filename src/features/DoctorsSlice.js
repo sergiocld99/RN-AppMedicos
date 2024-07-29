@@ -6,7 +6,6 @@ export const doctorsSlice = createSlice({
     value: {
       specialtySelected: null,
       doctorIdSelected: null,
-      locationSelected: null,
     },
   },
   reducers: {
@@ -17,11 +16,7 @@ export const doctorsSlice = createSlice({
     // Establecimiento del ID del doctor seleccionado
     setDoctorIdSelected: (state, action) => {
       state.value.doctorIdSelected = action.payload;
-    },
-    // Establecimiento de la ubicación seleccionada
-    setLocationSelected: (state, action) => {
-      state.value.locationSelected = action.payload;
-    },
+    }
   },
 });
 
