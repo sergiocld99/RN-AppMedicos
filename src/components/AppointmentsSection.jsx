@@ -3,6 +3,9 @@ import React from "react";
 import i18n from "../translations/i18n";
 import AppointmentCard from "./AppointmentCard";
 
+// Importación de íconos
+import { MaterialCommunityIcons } from '@expo/vector-icons';
+
 const AppointmentsSection = ({ list = [] }) => {
   
   // Ordenar turnos por fecha y hora
@@ -21,7 +24,10 @@ const AppointmentsSection = ({ list = [] }) => {
           style={{ width: "100%" }}
         />
       ) : (
-        <Text style={{ textAlign: "center" }}>{i18n.t("no_appointments")}</Text>
+        <View style={styles.noDataContainer}>
+          <MaterialCommunityIcons name="calendar-search" size={100} color="black" />
+          <Text style={{ textAlign: "center" }}>{i18n.t("no_appointments")}</Text>
+        </View>
       )}
     </>
   );
@@ -35,5 +41,11 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     margin: 16,
     textAlign: "center",
+  },
+  noDataContainer: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    gap: 16,
   },
 });

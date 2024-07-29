@@ -1,11 +1,9 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, View } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import { colors } from '../../global/colors'
-import i18n from '../../translations/i18n'
-import { useGetAppointmentsOfUserQuery, useGetAppointmentsQuery } from '../../services/doctorListService'
+import { useGetAppointmentsOfUserQuery } from '../../services/doctorListService'
 import { useSelector } from 'react-redux'
 import AppointmentsSection from '../../components/AppointmentsSection'
-import LoadingManagement from '../../components/LoadingManagement'
 
 /**
  * Pantalla de turnos agendados

@@ -1,17 +1,18 @@
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { View, Text } from 'react-native'
 import React from 'react'
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { colors } from "../global/colors";
 
 // Importar íconos
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { MaterialIcons } from '@expo/vector-icons';
+
+// Importar navigators de las pestañas
 import DoctorsStackNav from "./Tabs/DoctorsStackNav";
 import AppointmentsStackNav from "./Tabs/AppointmentsStackNav";
-import MapStackNav from "./Tabs/MapStackNav";
 import ProfileStackNav from "./Tabs/ProfileStackNav";
-import i18n from "../translations/i18n";
 
+// Importar traducciones
+import i18n from "../translations/i18n";
 
 const Tab = createBottomTabNavigator()
 
@@ -44,12 +45,6 @@ const MainTabsNavigator = () => {
         {
           tabBarLabel: i18n.t("appointments"),
           tabBarIcon: ({ focused }) => <MaterialIcons name="event" size={24} color={getIconColor(focused)} />
-        }
-      } />
-      <Tab.Screen name="MapTab" component={MapStackNav} options={
-        {
-          tabBarLabel: i18n.t("map"),
-          tabBarIcon: ({ focused }) => <MaterialIcons name="map" size={24} color={getIconColor(focused)} />
         }
       } />
       <Tab.Screen name="ProfileTab" component={ProfileStackNav} options={
