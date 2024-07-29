@@ -68,6 +68,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.background,
     alignItems: "center",
     justifyContent: "center",
+    width: "100%",
   },
   infoContainer: {
     flex: 1,
