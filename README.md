@@ -18,7 +18,43 @@ Luego, la instalación de todas las dependencias necesarias para el funcionamien
 El último paso para poder ejecutar el proyecto en modo desarrollo es correr `npm start`, aunque también se puede descargar y abrir directamente en un celular con sistema operativo Android conectado vía USB directamente con el comando `npm run android`.
 
 ## Funcionalidades
+Se desarrollaron un conjunto de 12 características disponibles para el usuario utilizando autenticación, persistencia de datos local y remoto, navegación entre pantallas y acceso al hardware del dispositivo.
 
+- [x] Registro del usuario en Firebase mediante email y contraseña.
+- [x] Inicio de sesión y guardado de la misma en base de datos local.
+- [x] Cierre de sesión desde la barra superior o Header.
+- [x] Visualización y selección de especialidades disponibles en la pestaña "Médicos".
+- [x] Visualización y selección de médicos según su especialidad, ordenado por apellido y nombre.
+- [x] Visualización de los datos, opiniones y ubicación con Google Maps de un médico en particular.
+- [x] Visualización de los turnos asignados por orden de fecha y hora.
+- [x] Reserva de turnos en una fecha y horario con un médico particular.
+- [x] Cancelación directa de turnos desde la pestaña homónima.
+- [x] Visualización de la foto de perfil actual en la pestaña "Perfil".
+- [x] Actualización de la foto de perfil usando la cámara del dispositivo.
+- [x] Aplicación disponible en múltiples idiomas (inglés y español).
+
+### Pestaña Médicos
+Se disponen de 5 pestañas accesibles de acuerdo a la siguiente jerarquía.
+
+- Especialidades (Specialties)
+  - Médicos (DoctorsOfSpecialty)
+    - Detalle del Médico (DoctorDetail)
+      - Ubicación (LocationPreview)
+      - Solicitud de turno (AppointmentForm)
+
+<img src="https://github.com/user-attachments/assets/03352cd6-3604-4492-90e0-9de9b2f9227b" width="200">
+<img src="https://github.com/user-attachments/assets/f20d7573-f2be-48ab-9331-3c9a7599460d" width="200">
+<img src="https://github.com/user-attachments/assets/72c85107-536c-4147-b4ab-6b96c6a0c8db" width="200">
+<img src="https://github.com/user-attachments/assets/2fc872ce-8da8-4f46-86bb-c7da3d96249b" width="200">
+
+### Pestaña Turnos
+<img src="https://github.com/user-attachments/assets/6b4ecea6-1e80-4188-9300-ad8b24fa6462" width="300">
+<img src="https://github.com/user-attachments/assets/6193aced-2196-4693-8309-527424cb798a" width="300">
+
+
+### Pestaña Perfil
+<img src="https://github.com/user-attachments/assets/19836ae5-5807-41cc-a12d-a210392241cc" width="300">
+<img src="https://github.com/user-attachments/assets/1c844eb8-a614-40b8-b18d-cb8353ab1585" width="300">
 
 ## Librerías empleadas
 En esta sección se describe la justificación y uso de librerías de React, Expo y otros autores.
@@ -65,8 +101,14 @@ Esta librería permite el uso de la cámara del dispositivo y el acceso a los ar
 ### i18n-js
 La internacionalización de la aplicación es un aspecto importante considerando la accesibilidad de la misma. Mediante esta librería, se detalla un listado de pares clave-valor para cada idioma a disponibilizar (en este caso inglés y español), de forma tal que el mensaje a mostrar (valor) se obtiene mediante la función `t('clave')`.
 
+<img src="https://github.com/user-attachments/assets/ffb0abb3-8c53-46bf-93c6-fdbe7db8ca06" width="300">
+<img src="https://github.com/user-attachments/assets/671a0da8-1165-4812-862a-30a68bc10a71" width="300">
+
 ### DateTimePicker
 Se utiliza una librería de la comunidad (@react-native-community/datetimepicker) para mostrar diálogos amigables para el usuario al momento de seleccionar una fecha (a partir del día siguiente al actual) y una hora (hora y minutos) para solicitar un turno. De esta forma, también se evita crear controles más complejos para validar estos campos en dicho formulario.
+
+<img src="https://github.com/user-attachments/assets/90d56c28-7594-4838-a85e-ac6444f5fc8e" width="300">
+<img src="https://github.com/user-attachments/assets/d3e1c545-3a3f-46e3-9a0b-b2e07cbe8cef" width="300">
 
 ## Estructura de archivos
 A nivel raíz, se encuentran el archivo App.js con el componente principal de la aplicación, el directorio assets que contiene imágenes locales, y el directorio src (source), cual contenido de cada subdirectorio se describe a continuación.
