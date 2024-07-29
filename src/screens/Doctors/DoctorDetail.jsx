@@ -35,7 +35,7 @@ const DoctorDetail = ({ navigation }) => {
 
   // Apertura de la ubicación en el mapa
   const onOpenLocation = () => {
-    dispatch(setLocationSelected(data.ubicación));
+    dispatch(setDoctorIdSelected(data.id));
     navigation.navigate("LocationPreview", { fullName });
   };
 

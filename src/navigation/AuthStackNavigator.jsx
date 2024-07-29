@@ -1,8 +1,8 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import LoginScreen from "../screens/Auth/LoginScreen";
 import RegisterScreen from "../screens/Auth/RegisterScreen";
-import MainHeader from "../components/MainHeader";
 import i18n from "../translations/i18n";
+import AuthHeader from "../components/AuthHeader";
 
 const Stack = createNativeStackNavigator()
 
@@ -26,7 +26,7 @@ const AuthStackNavigator = () => {
   return (
     <Stack.Navigator screenOptions={
       ({ route }) => ({
-        header: () => <MainHeader title={getTitle(route.name)} />
+        header: () => <AuthHeader title={getTitle(route.name)} />
       })
     } >
       <Stack.Screen name="Login" component={LoginScreen} />
